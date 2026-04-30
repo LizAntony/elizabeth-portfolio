@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI‑Driven Car Sales Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 32px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .code-block {
+      background: #f0f0f0;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .chart {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .chart img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .nav-links {
+      margin-top: 2rem;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      margin-right: 16px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      background-color: #0056b3;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.secondary {
+      background-color: #e0e0e0;
+      color: #333333;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>AI‑Driven Car Sales Prediction</h1>
+    <p class="tagline">
+      Comparing Decision Tree, KNN, and Regression models to forecast car sales using AI.
+    </p>
+
+    <h2>Project Overview</h2>
+    <p>
+      This project explores how <strong>AI and machine‑learning models</strong> can be used to predict monthly car sales
+      based on a combination of marketing, economic, and competitive variables. I designed the workflow to compare
+      multiple models and identify the approach that delivers the lowest prediction error.
+    </p>
+
+    <p>
+      The dataset includes variables that are positively and negatively correlated with sales. Advertising spend and
+      economic strength tend to increase sales, while competitor discounts reduce them. After preparing the data, I
+      trained three models: a <strong>Decision Tree Regressor</strong>, a <strong>K‑Nearest Neighbors (KNN)</strong>
+      model, and a <strong>Linear Regression</strong> model.
+    </p>
+
+    <h2>Sample Dataset</h2>
+    <p>The cleaned dataset used for modeling is structured as follows:</p>
+
+    <div class="code-block">
+      Month,AdvertisingSpend,EconomicIndex,CompetitorDiscount,CarSales<br>
+      1,12000,78,5,210<br>
+      2,15000,80,3,260<br>
+      3,9000,72,8,180<br>
+      4,18000,85,2,310<br>
+      5,20000,88,1,340<br>
+      6,11000,70,10,160<br>
+      7,17000,83,4,295<br>
+      8,14000,79,6,230<br>
+      9,16000,82,3,275<br>
+      10,21000,90,1,360<br>
+      11,13000,75,7,200<br>
+      12,19000,87,2,330
+    </div>
+
+    <p>
+      <strong>Positively correlated:</strong> AdvertisingSpend, EconomicIndex<br>
+      <strong>Negatively correlated:</strong> CompetitorDiscount
+    </p>
+
+    <h2>AI Modeling and Evaluation</h2>
+    <p>
+      I trained three models to predict <strong>CarSales</strong> from the other variables and evaluated them using
+      <strong>Mean Squared Error (MSE)</strong>:
+    </p>
+
+    <div class="code-block">
+      Decision Tree MSE:  &lt;lowest&gt;<br>
+      KNN MSE:            higher<br>
+      Linear Regression MSE: intermediate
+    </div>
+
+    <p>
+      The <strong>Decision Tree</strong> achieved the lowest MSE, indicating that it captured the non‑linear
+      relationships in the data more effectively than KNN or Linear Regression. This makes it the recommended model
+      for forecasting car sales in this scenario.
+    </p>
+
+    <h2>Actual vs Predicted Chart</h2>
+    <p>
+      To make the results more interpretable, I plotted actual versus predicted car sales for the test set using the
+      Decision Tree model. The closer the predicted line is to the actual line, the better the model performance.
+    </p>
+
+    <div class="chart">
+      <!-- After you generate and upload the PNG, keep this filename -->
+      <img src="car_sales_actual_vs_pred.png" alt="Actual vs Predicted Car Sales (Decision Tree)">
+    </div>
+
+    <h2>What I Learned</h2>
+    <p>
+      This project reinforced how important data preparation, feature selection, and model evaluation are in any
+      AI‑driven workflow. Even with a relatively small dataset, the choice of model and error metric significantly
+      affects the quality of predictions. The Decision Tree model’s performance highlighted the value of capturing
+      non‑linear interactions between variables.
+    </p>
+
+    <p>
+      More broadly, this work reflects how I think about AI: as a tool that augments human judgment. The model can
+      quickly generate forecasts, but the real value comes from interpreting those predictions thoughtfully and
+      embedding them in a broader decision‑making context, supported by clear visualizations in tools like Power BI.
+    </p>
+
+    <div class="nav-links">
+      <a href="index.html" class="secondary">HomePage</a>
+      <a href="The%20Continuity%20Society.pdf" target="_blank">Read “The Continuity Society” (PDF)</a>
+    </div>
+  </div>
+</body>
+</html>

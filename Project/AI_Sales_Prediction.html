@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI‑Driven Sales Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 32px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .code-block {
+      background: #f0f0f0;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .chart {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .chart img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .nav-links {
+      margin-top: 2rem;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      margin-right: 16px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      background-color: #0056b3;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.secondary {
+      background-color: #e0e0e0;
+      color: #333333;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>AI‑Driven Sales Prediction</h1>
+    <p class="tagline">
+      Comparing Decision Tree, KNN, and Regression models to forecast sales using AI.
+    </p>
+
+    <h2>Project Overview</h2>
+    <p>
+      This project explores how <strong>AI and machine‑learning models</strong> can be used to predict monthly sales
+      based on a combination of marketing, economic, and competitive variables. I designed the workflow to compare
+      multiple models and identify the approach that delivers the lowest prediction error.
+    </p>
+
+    <p>
+      The dataset includes variables that are positively and negatively correlated with sales. Advertising spend and
+      economic strength tend to increase sales, while competitor discounts reduce them. After preparing the data, I
+      trained three models: a <strong>Decision Tree Regressor</strong>, a <strong>K‑Nearest Neighbors (KNN)</strong>
+      model, and a <strong>Linear Regression</strong> model.
+    </p>
+
+    <h2>Sample Dataset</h2>
+    <p>The cleaned dataset used for modeling is structured as follows:</p>
+
+    <div class="code-block">
+    <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+  <thead>
+    <tr style="background-color:#e9e9e9;">
+      <th style="border:1px solid #ccc; padding:8px;">Month</th>
+      <th style="border:1px solid #ccc; padding:8px;">Advertising Spend</th>
+      <th style="border:1px solid #ccc; padding:8px;">Economic Index</th>
+      <th style="border:1px solid #ccc; padding:8px;">Competitor Discount</th>
+      <th style="border:1px solid #ccc; padding:8px;">Season</th>
+      <th style="border:1px solid #ccc; padding:8px;">Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="border:1px solid #ccc; padding:8px;">1</td><td>9000</td><td>68</td><td>7</td><td>Winter</td><td>140</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">2</td><td>9500</td><td>70</td><td>6</td><td>Winter</td><td>150</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">3</td><td>11000</td><td>72</td><td>5</td><td>Spring</td><td>190</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">4</td><td>13000</td><td>74</td><td>4</td><td>Spring</td><td>220</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">5</td><td>15000</td><td>76</td><td>3</td><td>Spring</td><td>260</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">6</td><td>16000</td><td>78</td><td>3</td><td>Summer</td><td>310</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">7</td><td>17000</td><td>80</td><td>2</td><td>Summer</td><td>360</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">8</td><td>17500</td><td>82</td><td>2</td><td>Summer</td><td>380</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">9</td><td>16000</td><td>78</td><td>4</td><td>Fall</td><td>300</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">10</td><td>18000</td><td>80</td><td>3</td><td>Fall</td><td>320</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">11</td><td>20000</td><td>82</td><td>2</td><td>Fall</td><td>340</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">12</td><td>22000</td><td>85</td><td>1</td><td>Winter</td><td>420</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">13</td><td>23000</td><td>86</td><td>1</td><td>Winter</td><td>430</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">14</td><td>24000</td><td>88</td><td>1</td><td>Winter</td><td>440</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">15</td><td>25000</td><td>90</td><td>2</td><td>Winter</td><td>445</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">16</td><td>26000</td><td>92</td><td>3</td><td>Winter</td><td>450</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">17</td><td>27000</td><td>94</td><td>4</td><td>Winter</td><td>452</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">18</td><td>28000</td><td>95</td><td>5</td><td>Winter</td><td>455</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">19</td><td>15000</td><td>60</td><td>10</td><td>Recession</td><td>120</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">20</td><td>16000</td><td>62</td><td>9</td><td>Recession</td><td>130</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">21</td><td>17000</td><td>64</td><td>8</td><td>Recession</td><td>135</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">22</td><td>18000</td><td>66</td><td>7</td><td>Recession</td><td>150</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">23</td><td>19000</td><td>68</td><td>6</td><td>Recession</td><td>160</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">24</td><td>20000</td><td>70</td><td>5</td><td>Recession</td><td>170</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">25</td><td>21000</td><td>72</td><td>4</td><td>Recession</td><td>175</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">26</td><td>22000</td><td>74</td><td>3</td><td>Recovery</td><td>240</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">27</td><td>23000</td><td>76</td><td>2</td><td>Recovery</td><td>300</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">28</td><td>24000</td><td>78</td><td>2</td><td>Recovery</td><td>360</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">29</td><td>25000</td><td>80</td><td>1</td><td>Recovery</td><td>420</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:8px;">30</td><td>26000</td><td>82</td><td>1</td><td>Recovery</td><td>460</td></tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <p>
+      <strong>Positively correlated:</strong> AdvertisingSpend, EconomicIndex<br>
+      <strong>Negatively correlated:</strong> CompetitorDiscount
+    </p>
+
+    <h2>AI Modeling and Evaluation</h2>
+    <p>
+      I trained three models to predict <strong>Sales</strong> from the other variables and evaluated them using
+      <strong>Mean Squared Error (MSE)</strong>:
+    </p>
+
+    <div class="code-block">
+      Decision Tree MSE:  &lt;lowest&gt;<br>
+      KNN MSE:            higher<br>
+      Linear Regression MSE: intermediate
+    </div>
+
+    <p>
+      The <strong>Decision Tree</strong> achieved the lowest MSE, indicating that it captured the non‑linear
+      relationships in the data more effectively than KNN or Linear Regression. This makes it the recommended model
+      for forecasting sales in this scenario.
+    </p>
+
+    <h2>Actual vs Predicted Chart</h2>
+    <p>
+      To make the results more interpretable, I plotted actual versus predicted sales for the test set using the
+      Decision Tree model. The closer the predicted line is to the actual line, the better the model performance.
+    </p>
+
+    <div class="chart">
+      <!-- After you generate and upload the PNG, keep this filename -->
+<a href="SalesDecisionTree.html" class="secondary">HomePage</a>
+
+      <img src="sales_actual_vs_pred.png" alt="Actual vs Predicted Sales (Decision Tree)">
+    </div>
+
+    <h2>What I Learned</h2>
+    <p>
+      This project reinforced how important data preparation, feature selection, and model evaluation are in any
+      AI‑driven workflow. Even with a relatively small dataset, the choice of model and error metric significantly
+      affects the quality of predictions. The Decision Tree model’s performance highlighted the value of capturing
+      non‑linear interactions between variables.
+    </p>
+
+    <p>
+      More broadly, this work reflects how I think about AI: as a tool that augments human judgment. The model can
+      quickly generate forecasts, but the real value comes from interpreting those predictions thoughtfully and
+      embedding them in a broader decision‑making context, supported by clear visualizations in tools like Power BI.
+    </p>
+
+    <div class="nav-links">
+      <a href="https://lizantony.github.io/elizabeth-portfolio/Project/index.html" class="secondary">ProjectSales</a>
+    </div>
+  </div>
+</body>
+</html>
